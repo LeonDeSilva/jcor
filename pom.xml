@@ -6,7 +6,7 @@
 
     <groupId>com.leondesilva.jcor</groupId>
     <artifactId>jcor</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
 
     <name>jcor</name>
     <url>https://github.com/LeonDeSilva/jcor</url>
