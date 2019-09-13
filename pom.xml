@@ -4,18 +4,77 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.leondesilva</groupId>
+    <groupId>com.leondesilva.jcor</groupId>
     <artifactId>jcor</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <name>jcor</name>
+    <url>https://github.com/LeonDeSilva/jcor</url>
+    <description>A Java Library for Chain of Responsibility Design Pattern</description>
+
+    <developers>
+        <developer>
+            <name>Leon De Silva</name>
+            <email>leosoft.l007@gmail.com</email>
+            <organizationUrl>http://leondesilva.com</organizationUrl>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url>https://github.com/LeonDeSilva/jcor/blob/master/LICENSE</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git@github.com:LeonDeSilva/jcor.git</connection>
+        <url>https://github.com/LeonDeSilva/jcor</url>
+    </scm>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
                 <configuration>
+                    <encoding>UTF-8</encoding>
                     <source>1.8</source>
                     <target>1.8</target>
+                    <testSource>1.8</testSource>
+                    <testTarget>1.8</testTarget>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

@@ -1,4 +1,4 @@
-package com.leondesilva;
+package com.leondesilva.jcor;
 
 import java.util.LinkedList;
 import java.util.List;

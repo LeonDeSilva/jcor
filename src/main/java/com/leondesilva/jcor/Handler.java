@@ -1,4 +1,4 @@
-package com.leondesilva;
+package com.leondesilva.jcor;
 
 /**
  * Interface to represent a handler in JCor.
