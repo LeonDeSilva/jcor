@@ -10,7 +10,7 @@ public class Handler4 implements Handler<Input, Status> {
      * @return true if processing should happen through the current handler, else returns false
      */
     @Override
-    public boolean evaluate(Input input) {
+    public boolean evaluate(Input input, Status status) {
         return input.getCount() <= 20;
     }
 

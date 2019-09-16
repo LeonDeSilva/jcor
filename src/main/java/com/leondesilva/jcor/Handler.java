@@ -15,7 +15,7 @@ public interface Handler<I, S> {
      * @param input the input object
      * @return  true if processing should happen through the current handler, else returns false
      */
-    boolean evaluate(I input);
+    boolean evaluate(I input, S status);
 
     /**
      * Method to do the processing.

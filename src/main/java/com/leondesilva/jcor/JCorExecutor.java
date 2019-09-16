@@ -30,7 +30,7 @@ public class JCorExecutor<I, S> {
     public void execute(I input, S status) {
 
         for (Handler<I, S> handler : handlerList) {
-            if (handler != null && handler.evaluate(input)) {
+            if (handler != null && handler.evaluate(input, status)) {
                 handler.process(input, status);
 
                 if (handler.shouldExitChainAfterProcessing(status)) {
