@@ -1,4 +1,4 @@
-package com.leondesilva.jcor.demo.Demo1;
+package com.leondesilva.jcor.demo.demo1;
 
 /**
  * Class to represent the input required for the demo

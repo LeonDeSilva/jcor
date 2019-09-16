@@ -1,8 +1,8 @@
-package com.leondesilva.jcor.demo.Demo1;
+package com.leondesilva.jcor.demo.demo1;
 
 import com.leondesilva.jcor.Handler;
 
-class Handler5 implements Handler<Input, Status> {
+class Handler8 implements Handler<Input, Status> {
     /**
      * Method to evaluate whether the current handler is capable for processing the given input object.
      *
@@ -11,7 +11,7 @@ class Handler5 implements Handler<Input, Status> {
      */
     @Override
     public boolean evaluate(Input input, Status status) {
-        return input.getCount() <= 25;
+        return input.getCount() <= 40;
     }
 
     /**
@@ -22,7 +22,7 @@ class Handler5 implements Handler<Input, Status> {
      */
     @Override
     public void process(Input input, Status status) {
-        status.setMessage("Between 21 and 25");
+        status.setMessage("Between 36 and 40");
     }
 
     /**

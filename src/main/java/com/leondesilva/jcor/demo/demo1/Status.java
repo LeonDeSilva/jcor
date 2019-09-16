@@ -1,4 +1,4 @@
-package com.leondesilva.jcor.demo.Demo1;
+package com.leondesilva.jcor.demo.demo1;
 
 /**
  * Class to represent the status
@@ -12,7 +12,7 @@ public class Status {
      *
      * @param message the message
      */
-    public void setMessage(String message) {
+    void setMessage(String message) {
         this.message = message;
     }
 
@@ -21,7 +21,7 @@ public class Status {
      *
      * @return the message
      */
-    public String getMessage() {
+    String getMessage() {
         return message;
     }
 }

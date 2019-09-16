@@ -1,4 +1,4 @@
-package com.leondesilva.jcor.demo.Demo1;
+package com.leondesilva.jcor.demo.demo1;
 
 import com.leondesilva.jcor.Handler;
 

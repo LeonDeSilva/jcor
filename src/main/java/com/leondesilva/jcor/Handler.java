@@ -12,7 +12,8 @@ public interface Handler<I, S> {
     /**
      * Method to evaluate whether the current handler is capable for processing the given input object.
      *
-     * @param input the input object
+     * @param input  the input object
+     * @param status the status object
      * @return  true if processing should happen through the current handler, else returns false
      */
     boolean evaluate(I input, S status);
