@@ -26,8 +26,9 @@ public class JCorExecutor<I, S> {
      *
      * @param input     the input object
      * @param status    the status object
+     * @throws Exception if an error occurs
      */
-    public void execute(I input, S status) {
+    public void execute(I input, S status) throws Exception {
 
         for (Handler<I, S> handler : handlerList) {
             if (handler != null && handler.evaluate(input, status)) {

@@ -23,8 +23,9 @@ public interface Handler<I, S> {
      *
      * @param input     the input object
      * @param status    the status object keep track of the status of execution
+     * @throws Exception if an error occurs
      */
-    void process(I input, S status);
+    void process(I input, S status) throws Exception;
 
     /**
      * Method to let the executor know whether the processing should stop from the current handler or not.
