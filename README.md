@@ -17,3 +17,22 @@ JCOR is a library to help you implement Chain Of Responsibility (COR).
 
 Implement the Handler interface and create the set of nodes which is equal to one execution path of your 'if', 'else if' or 'else' statement.
 Create a JCorExecutor instance and add your handlers and simply execute it.
+
+<br>
+
+**Handler**
+
+Modifier and Type       | Method and Description
+------------------------|------------------------------------------------------------------------
+boolean                 | <b>evaluate (I</b> input, <b>S</b> status) <br> Method to evaluate whether the current handler is capable for processing the given input and state object.
+void                    | <b>process (I</b> input, <b>S</b> status) throws Exception <br> Method to do the processing of the handler.
+boolean                 | <b>shouldExitChainAfterProcessing (S</b> status); <br> Method to let the executor know whether the processing should stop from the current handler or not.
+
+
+
+**JCorExecutor**
+
+Modifier and Type       | Method and Description
+------------------------|------------------------------------------------------------------------
+void                    | <b>addHandler (Handler<I, S></b> handler) <br> Method to add a handler to execution list
+void                    | <b>execute (I</b> input, <b>S</b> status) throws Exception <br> Method to execute the given list of handlers for a given input and status object.
