@@ -8,9 +8,35 @@ cache:
 jdk:
   - openjdk8
 
+
+## export GPG details
+before_install:
+    - echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import
+    - echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust
+
+install:
+    mvn --settings .maven.xml install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B -V
+
 script:
-   - mvn clean compile package -DskipTests=true
+- if [ -n "$TRAVIS_TAG" ];
+  then
+    mvn clean deploy --settings .maven.xml -DskipTests=true -B -U -Prelease ;
+  else
+    mvn clean compile package --settings .maven.xml -DskipTests=true -B -U -Prelease ;
+  fi
 
 before_deploy:
   - mvn help:evaluate -N -Dexpression=project.version|grep -v '\['
   - export project_version=$(mvn help:evaluate -N -Dexpression=project.version|grep -v '\[')
+
+deploy:
+  provider: releases
+  api_key:
+    secure: HwHeO8Pzpy8t2/4lwLPtF2jpXxBRl6Yy/dscvWYn9qV2hAIeCnNB7P2fqDfKnJF6lXq/ydm9AUAfZh+mGuHum3XZ69oOYh2O9izh8QZzdZQUqzy3Be151JtC2DSFGm56UaLL0VYtN/j5M0xjYWnvG5Oz3c6Va0g4vMVOoRBZ2qL+E9MvJoreQcPTX7eOiueUElfMOUIbVZgryxoDUcNOdGxlGU6cQK53jFOKAjE7nSJ+QOKRqLfnNbWJOtOqtssoDfrCXhO7SOuDt9xVznD/dh92WeeWlrkaH+f4WuNAV3GvZJsY5q65d3FRvNgl5Zs7742oxBqTfeXQizcxEeR7KHBVbl3rv+V9WSY/2rOUK1/8TxK6NH3i3zhMsBftvljHK7FkEk8Mw8Ied+t/yQSFPGxMBxcfURSDoWKzzjrdLH/v/BtsdGN6n/hXvtN8ZGI/4sN1bNUmKXgWbJz6oNScKMIuezmGkpwiGkUIbK3k72I/eFSXwdo4+OYjPymQrN5M5WLonVrIa1FIkgwe0K6E6lzXcWsuW3uApSmSmxKemLvk+DWS6WT8zk0e6d4bOMir6PE1s1f7F2EnoLjWVerukzRc40nRnBTyXuNfb8YQDxpHjMeBTJRvvcxtV4MFX2H1WquJDFrRrzakfPCc3f+wxpA38OktC/eZiokO9y+VukQ=
+  file: target/jcor-$project_version.jar
+  skip_cleanup: true
+  on:
+    repo: LeonDeSilva/jcor
+    all_branches: true
+    tags: true
+  name: $project_version
