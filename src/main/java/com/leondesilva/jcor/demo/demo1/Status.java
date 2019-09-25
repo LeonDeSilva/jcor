@@ -4,7 +4,7 @@ package com.leondesilva.jcor.demo.demo1;
  * Class to represent the status
  *
  */
-public class Status {
+class Status {
     private String message;
 
     /**

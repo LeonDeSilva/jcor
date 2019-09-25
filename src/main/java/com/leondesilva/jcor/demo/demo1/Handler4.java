@@ -2,7 +2,7 @@ package com.leondesilva.jcor.demo.demo1;
 
 import com.leondesilva.jcor.Handler;
 
-public class Handler4 implements Handler<Input, Status> {
+class Handler4 implements Handler<Input, Status> {
     /**
      * Method to evaluate whether the current handler is capable for processing the given input object.
      *
